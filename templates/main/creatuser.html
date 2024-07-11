@@ -1,0 +1,99 @@
+{% extends 'base.html' %}{% load static %}
+
+{% block content %}
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item active">Istemolchi qo'shish</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+      <form class="row" method="POST">{% csrf_token %}
+        <div class="col-lg-6">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Malumotlar</h5>
+              <!-- General Form Elements -->
+              <div>
+                <div class="row mb-3">
+                  <label for="id_first_name" class="col-sm-3 col-form-label">Ism</label>
+                  <div class="col-sm-9">
+                    {{form.first_name}}
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="id_last_name" class="col-sm-3 col-form-label">Familiya</label>
+                  <div class="col-sm-9">
+                    {{form.last_name}}
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="id_tg" class="col-sm-3 col-form-label">Telegram</label>
+                  <div class="col-sm-9">
+                    {{form.tg}}
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="id_tel" class="col-sm-3 col-form-label">Telefon</label>
+                  <div class="col-sm-9">
+                    {{form.tel}}
+                  </div>
+                </div>
+
+              </div><!-- End General Form Elements -->
+
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-lg-6">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Login & Parol</h5>
+              <!-- Advanced Form Elements -->
+              <div>
+                <div class="row mb-3">
+                  <label for="id_username" class="col-sm-3 col-form-label">Login</label>
+                  <div class="col-sm-9">
+                    {{form.username}}
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="id_password1" class="col-sm-3 col-form-label">Parol</label>
+                  <div class="col-sm-9">
+                    {{form.password1}}
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="id_password2" class="col-sm-3 col-form-label">Parolni tasdiqlang</label>
+                  <div class="col-sm-9">
+                    {{form.password2}}
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label class="col-sm-3 col-form-label"></label>
+                  <div class="col-sm-9">
+                    <button type="submit" class="btn btn-primary">Submit Form</button>
+                  </div>
+                </div>
+
+              </div><!-- End General Form Elements -->
+
+            </div>
+          </div>
+
+        </div>
+      </form>
+    </section>
+
+  </main><!-- End #main -->
+
+{% endblock content %}

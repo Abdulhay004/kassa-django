@@ -1,0 +1,48 @@
+{% extends 'base2.html' %}
+
+{% block content %}
+  <main id="main" class="main">
+
+     <div class="pagetitle">
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item active">Istemolchilar</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card recent-sales overflow-auto">
+            <div class="card-body">
+              <h5 class="card-title">Jadval</h5>
+
+              <!-- Default Table -->
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Sana</th>
+                    <th scope="col">Summa</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for i in qarzlar %}
+                  <tr>
+                    <th scope="row">{{forloop.counter}}</th>
+                    <td>{{ i.sana }}</td>
+                    <td>{{ i.summa }}</td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+              <!-- End Default Table Example -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+{% endblock content %}
