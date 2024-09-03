@@ -6,7 +6,8 @@ from django.shortcuts import get_object_or_404
 from users.models import *
 from .models import *
 from .forms import *
-from django.db.models import Sum
+from django.db.models import Sum, Value
+from django.db.models.functions import Coalesce
 # Create your views here.
 
 @login_required
@@ -31,7 +32,9 @@ def profil(request):
 @login_required
 def index(request):
     context = {
-        'users': User.objects.filter(is_superuser=False).annotate(summa=Sum('qarz__summa')),
+        'users': User.objects.filter(is_superuser=False).annotate(
+            summa=Coalesce(Sum('qarz__summa'), Value(0))
+        ),
         'user': request.user,
     }
     return render(request, 'main/index.html',context)

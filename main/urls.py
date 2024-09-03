@@ -8,6 +8,6 @@ urlpatterns = [
     path('detail/<int:pk>', detail, name='detail'),
     path('qarz_delete/<int:pk>', qarz_delete, name='qarz_delete'),
     
-    path('profil2', profil2, name='profil2'),
+    path('profil2/', profil2, name='profil2'),
     path('index2/', index2, name='index2'),
 ]
